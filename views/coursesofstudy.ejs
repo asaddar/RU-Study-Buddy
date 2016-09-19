@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>RU Study Buddy</title>
+</head>
+<body>
+	
+	<a href='/logout'>
+        LOGOUT
+    </a>
+
+	<h1>RU STUDY BUDDY COURSE OF STUDY SELECTION</h1>
+
+	<ul>
+	<% for(var i=0; i <subjectsList.length; i++) { %>
+		<li><a href='/selecteddept/<%= subjectsList[i].code %>'><%= subjectsList[i].description %></a></li>
+    <% } %>
+	</ul>
+
+</body>
+</html>

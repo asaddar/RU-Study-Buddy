@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>RU Study Buddy</title>
+</head>
+<body>
+
+        <a href='/logout'>
+                LOGOUT
+        </a>
+
+	<h1>RU STUDY BUDDY </h1>
+
+        <a href='/selecteddept/<%= subjectID %>'>
+                VIEW OTHER COURSES IN DEPARTMENT <%= subjectID %>
+        </a>
+
+        <br>
+        
+        <a href='/course/<%= subjectID %>/<%= courseID %>/<%= courseName %>'>
+                GO BACK TO <%= courseName %>
+        </a>
+
+	<h3> <%= courseName %> </h3>
+
+        <form action="/course/<%= subjectID %>/<%= courseID %>/<%= courseName %>" name="deptnum" method="POST">
+                <span> Course ID </span><br>
+        	<input type="text" name="courseID" value=<%= courseID %> readonly><br>
+                <span> Professor </span><br>
+        	<input type="text" name="professor"><br>
+                <span> Message </span><br>
+        	<textarea name="message" placeholder="Enter text here..." style="width: 600px; height: 150px;"></textarea><br>
+        	<button type="submit">Submit</button>
+        </form>
+
+</body>
+</html>

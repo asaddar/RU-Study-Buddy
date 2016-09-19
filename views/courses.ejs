@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>RU Study Buddy</title>
+</head>
+<body>
+
+    <a href='/logout'>
+        LOGOUT
+    </a>
+
+	<h1>RU STUDY BUDDY </h1>
+
+    <a href='/coursesofstudy'>
+        SELECT A DIFFERENT DEPARTMENT
+    </a>
+
+	<h3> Courses for Department <%= dept_num %> </h3>
+
+	<ul>
+    <% for(var i=0; i <courseList.length; i++) { %>
+        <li>
+            <a href='/course/<%= courseList[i].subject %>/<%= courseList[i].fullCourseID %>/<%= courseList[i].title %>'>
+                <%= courseList[i].title %>
+            </a>
+        </li>
+    <% } %>
+</ul>
+
+</body>
+</html>

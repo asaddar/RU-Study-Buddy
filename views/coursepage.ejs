@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>RU Study Buddy</title>
+</head>
+<body>
+
+    <a href='/logout'>
+        LOGOUT
+    </a>
+
+	<h1>RU STUDY BUDDY </h1>
+
+    <a href='/coursesofstudy'>
+        SELECT A DIFFERENT DEPARTMENT
+    </a>
+
+    <br>
+
+    <a href='/selecteddept/<%= subjectID %>'>
+        VIEW OTHER COURSES IN DEPARTMENT <%= subjectID %>
+    </a>
+
+	<h3> <%= courseName %> </h3>
+
+    <a href='/course/post/<%= subjectID %>/<%= courseID %>/<%= courseName %>'>
+        Create a post for <%= courseName %>
+    </a>
+
+    <h3>POSTS</h3>
+
+    <% if(posts.length == 0){ %>
+        <p>There are currently no listings for this course</p>
+    <% } %>
+
+    <ul>
+    <% for(var i=0; i <posts.length; i++) { %>
+        <li>
+            <ul>
+                <li><img src=<%= posts[i].postedByProfilePic %> height="42" width="42"></li>
+                <li><%= posts[i].postedByFullName %></li>
+                <li>Professor <%= posts[i].professor %></li>
+                <li><%= posts[i].postMessage %></li>
+
+                <% if(userData.profileID === posts[i].postedByProfileId){ %>
+                     <li><a href='/course/delete/<%= subjectID %>/<%= courseID %>/<%= courseName %>/<%= posts[i]._id %>'>DELETE</a></li>
+                <% } %>
+
+                <% if(userData.profileID != posts[i].postedByProfileId){ %>
+                     <li><a href='/course/connect/<%= subjectID %>/<%= courseID %>/<%= courseName %>/<%= posts[i].postedByProfileId %>'>CONNECT</a></li>
+                <% } %>
+
+            </ul>
+        </li>
+    <% } %>
+    </ul>
+    
+
+</body>
+</html>
