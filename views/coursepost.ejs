@@ -28,7 +28,11 @@
                 <span> Course ID </span><br>
         	<input type="text" name="courseID" value=<%= courseID %> readonly><br>
                 <span> Professor </span><br>
-        	<input type="text" name="professor"><br>
+                <select name="professor">
+                        <% for(var i=0; i < professorList.length; i++) { %>
+                                <option value=<%= professorList[i] %>><%= professorList[i] %></option>
+                        <% } %>
+                </select><br>
                 <span> Message </span><br>
         	<textarea name="message" placeholder="Enter text here..." style="width: 600px; height: 150px;"></textarea><br>
         	<button type="submit">Submit</button>

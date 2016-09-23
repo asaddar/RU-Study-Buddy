@@ -40,7 +40,9 @@
             <ul>
                 <li><img src=<%= posts[i].postedByProfilePic %> height="42" width="42"></li>
                 <li><%= posts[i].postedByFullName %></li>
-                <li>Professor <%= posts[i].professor %></li>
+                <% if(posts[i].professor != 'NONE'){ %>
+                    <li>Professor: <%= posts[i].professor %></li>
+                <% } %>
                 <li><%= posts[i].postMessage %></li>
 
                 <% if(userData.profileID === posts[i].postedByProfileId){ %>

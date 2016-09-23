@@ -21,7 +21,7 @@
 	<ul>
     <% for(var i=0; i <courseList.length; i++) { %>
         <li>
-            <a href='/course/<%= courseList[i].subject %>/<%= courseList[i].fullCourseID %>/<%= courseList[i].title %>'>
+            <a href='/course/<%= courseList[i].subject %>/<%= courseList[i].subject + courseList[i].courseNumber %>/<%= courseList[i].title %>'>
                 <%= courseList[i].title %>
             </a>
         </li>
