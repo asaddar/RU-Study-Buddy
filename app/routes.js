@@ -53,7 +53,7 @@ module.exports = function(app, passport){
         if (err) {
             res.send('ERROR. Try going back or reloading the page! If error persists contact asad7dar@gmail.com');
         } else {
-            res.render('coursepage.ejs', {courseID: courseID, courseName: courseName, posts: posts, userData: req.user, subjectID: subjectID, clickHandler:"func1();"});
+            res.render('coursepage.ejs', {courseID: courseID, courseName: courseName, posts: posts, userData: req.user, subjectID: subjectID});
 		}
     });
 
