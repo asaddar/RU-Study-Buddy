@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ru study buddy</title>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <style>
+        h1 {color:white;
+            text-align: center;
+            font-family: 'Open Sans';
+        }
+
+        h5 {color:white;
+            text-align: center;
+            font-family: 'Open Sans';
+        }
+
+        .profile-image {
+                text-align: center;
+        }
+
+        body {background-color: #800000;}
+    </style>
+</head>
+<body>
+
+        <a href='/logout' class="waves-effect waves-light btn red lighten-1">
+                LOGOUT
+        </a>
+
+        <a href='/coursesofstudy' class="waves-effect waves-light btn blue">
+                SELECT A DIFFERENT DEPARTMENT
+        </a>
+
+        <a href='/selecteddept/<%= subjectID %>' class="waves-effect waves-light btn blue">
+                VIEW OTHER COURSES IN DEPARTMENT <%= subjectID %>
+        </a>
+
+        <a href='/course/<%= subjectID %>/<%= courseID %>/<%= courseName %>' class="waves-effect waves-light btn blue">
+                GO BACK TO <%= courseName %>
+        </a>
+
+	<h1>ru study buddy </h1>
+
+	<h5> connected! </h5>
+
+        <div class="profile-image">
+                <img src=<%= postPublisher.profilePic %> height="42" width="42">
+        </div>
+
+        <h5> you have connected with <%= postPublisher.fullName %>! we've just connected both of you right now via email so be sure to check the email inbox associated with your facebook account to make the next steps and get in touch with each other! </h5>
+
+</body>
+</html>

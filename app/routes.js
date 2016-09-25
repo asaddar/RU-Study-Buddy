@@ -8,7 +8,12 @@ var transporter = nodemailer.createTransport('smtps://rustudybuddy%40gmail.com:'
 
 module.exports = function(app, passport){
 	app.get('/', function(req, res){
-		res.render('index.ejs');
+		if(req.isAuthenticated()){
+			res.redirect('/coursesofstudy');
+		}else{
+			res.render('index.ejs');
+		}
+
 	});
 
 	app.get('/coursesofstudy', isLoggedIn, function(req, res){
@@ -48,7 +53,7 @@ module.exports = function(app, passport){
         if (err) {
             res.send('ERROR. Try going back or reloading the page! If error persists contact asad7dar@gmail.com');
         } else {
-            res.render('coursepage.ejs', {courseID: courseID, courseName: courseName, posts: posts, userData: req.user, subjectID: subjectID});
+            res.render('coursepage.ejs', {courseID: courseID, courseName: courseName, posts: posts, userData: req.user, subjectID: subjectID, clickHandler:"func1();"});
 		}
     });
 
@@ -124,7 +129,7 @@ module.exports = function(app, passport){
     			console.log('Message sent: ' + info.response);
 				});
 
-        	res.redirect('/course/' + subjectID + '/' + courseID + '/' + courseName);
+        	res.render('connected.ejs', {courseID: courseID, courseName: courseName, subjectID: subjectID, postPublisher: postPublisher[0]});
 		}
     });
 

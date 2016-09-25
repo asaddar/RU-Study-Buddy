@@ -2,41 +2,66 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>RU Study Buddy</title>
+	<title>ru study buddy</title>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <style>
+        h1 {color:#800000;
+            text-align: center;
+            font-family: 'Open Sans';
+        }
+
+        h3 {color:#800000;
+            text-align: center;
+            font-family: 'Open Sans';
+        }
+
+        .submitting {
+                text-align: center;
+        }
+        </style>
 </head>
 <body>
 
-        <a href='/logout'>
+        <a href='/logout' class="waves-effect waves-light btn red lighten-1">
                 LOGOUT
         </a>
 
-	<h1>RU STUDY BUDDY </h1>
-
-        <a href='/selecteddept/<%= subjectID %>'>
+        <a href='/selecteddept/<%= subjectID %>' class="waves-effect waves-light btn blue">
                 VIEW OTHER COURSES IN DEPARTMENT <%= subjectID %>
         </a>
 
-        <br>
-        
-        <a href='/course/<%= subjectID %>/<%= courseID %>/<%= courseName %>'>
+        <a href='/course/<%= subjectID %>/<%= courseID %>/<%= courseName %>' class="waves-effect waves-light btn blue">
                 GO BACK TO <%= courseName %>
         </a>
+
+	<h1>ru study buddy </h1>
 
 	<h3> <%= courseName %> </h3>
 
         <form action="/course/<%= subjectID %>/<%= courseID %>/<%= courseName %>" name="deptnum" method="POST">
-                <span> Course ID </span><br>
-        	<input type="text" name="courseID" value=<%= courseID %> readonly><br>
+        	<input type="hidden" name="courseID" value=<%= courseID %> readonly><br>
                 <span> Professor </span><br>
-                <select name="professor">
+                <select class="browser-default" name="professor">
                         <% for(var i=0; i < professorList.length; i++) { %>
                                 <option value=<%= professorList[i] %>><%= professorList[i] %></option>
                         <% } %>
                 </select><br>
                 <span> Message </span><br>
-        	<textarea name="message" placeholder="Enter text here..." style="width: 600px; height: 150px;"></textarea><br>
-        	<button type="submit">Submit</button>
+
+                <div class="input-field">
+        	       <textarea class="materialize-textarea" name="message" id="message" placeholder="Enter text here..."></textarea><br>
+                </div>
+                <div class="submitting">
+        	       <button class="waves-effect waves-light btn blue" type="submit">Submit</button>
+                </div>
         </form>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
 </body>
 </html>
